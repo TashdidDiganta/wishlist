@@ -4,7 +4,7 @@ const addItme = document.getElementById('add-itme');
 const imgUrl = document.getElementById('image-input');
 const productName = document.getElementById('product-name-input');
 const productPrice = document.getElementById('product-price-input');
-const container = document.getElementById('cart-container');
+// const container = document.getElementById('cart-container');
 
 
 // create arr
@@ -57,9 +57,9 @@ function setDataInLocalStorage(item){
 
 
 function showCart(cart){
-    let allCart = '';
-    cart.map(item =>{
-        allCart += `<div class="cards">
+
+   document.getElementById('cart-container').innerHTML = cart.map(item =>{
+     `<div class="cards">
             <div class="card">
                 <img src="${item.imageUrl}" alt="">
                 <div class="details">
@@ -69,8 +69,26 @@ function showCart(cart){
                 </div>
             </div>
      </div>`
-    })
+    } )
 
-    container.innerHTML = allCart;
+    
+
+
+
+    // let allCart = '';
+    // cart.map(item =>{
+    //     allCart += `<div class="cards">
+    //         <div class="card">
+    //             <img src="${item.imageUrl}" alt="">
+    //             <div class="details">
+    //                 <p><span>Name:</span>${item.newProductName}</p>
+    //                 <p><span>Price</span>$ ${item.newProductPrice}</p>
+    //                 <button>Add To Cart</button>
+    //             </div>
+    //         </div>
+    //  </div>`
+    // })
+
+    // container.innerHTML = allCart;
 
 }
