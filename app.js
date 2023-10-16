@@ -1,4 +1,4 @@
-
+const dom = document.getElementById('product-container')
 
 // create arr
 const saveCartIntoLocalStorage = getDataFromLocalStorage('item') != null? getDataFromLocalStorage('item') : [];
@@ -17,7 +17,7 @@ function showCart(cart){
     cart.map(item =>{
         document.getElementById('cart-container').innerHTML += `
         <div class="cards">
-            <div class="card">
+            <div class="add-card">
                 <img src="${item.imageUrl}" alt="">
                 <div class="details">
                     <p><span>Name:</span>${item.newProductName}</p>
@@ -31,26 +31,31 @@ function showCart(cart){
 
 }
 
-const dom = document.getElementsById('listCard')
 
 
+
+/// add to cart
 function getOrderItem(id){
     const saveData = getDataFromLocalStorage('item');
-    for(i of saveData) {
-      if(id === i.id){
-        let newDiv = document.createElement('li');
-        newDiv.innerHTML = `
+
+    saveData.map(i =>{
+        if(id === i.id){
+            let newDiv = document.createElement('li');
+            newDiv.innerHTML = `
             <div><img src="${i.imageUrl}"/></div>
             <div>${i.newProductName}</div>
+            <div>${i.newProductPrice}</div>
+            <div class="right-margin">
+              <button>+</button>
+              <div>0</div>
+              <button>-</button>
+            </div>
           `;
 
           dom.appendChild(newDiv)
-        //     listCard.appendChild(newDiv);
-        // console.log(i.newProductName)
-
-        // document.getElementsById('listCard').innerHTML += `<div class="title">${i.newProductName}</div> `
-
-      } 
-    }
+        }
+    })
         
 }
+
+

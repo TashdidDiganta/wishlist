@@ -62,7 +62,7 @@ a{
 /* cards-css */
 
 
-.card{
+.add-card{
     width: 299px;
     height: 377px;
     margin-top: 20px;
@@ -72,7 +72,7 @@ a{
 }
 
 
-.card img{
+.add-card img{
     width: 220px;
     margin-top: 30px;
 }
@@ -216,6 +216,33 @@ body {
   add to cart */
 
 
+
+  .card{
+    position: fixed;
+    top:0;
+    width: 500px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.card h1{
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.card .checkOut{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
 .card .checkOut div{
     background-color: #E8BC0E;
     width: 100%;
@@ -230,24 +257,37 @@ body {
     background-color: #1C1F25;
     color: #fff;
 }
+
+.listCard{
+  display: block;
+}
 .listCard li{
     display: grid;
-    grid-template-columns: 100px repeat(3, 1fr);
+    margin-top: 15px;
+    grid-template-columns: repeat(4, 1fr);
     color: #fff;
     row-gap: 10px;
+
+
 }
 .listCard li div{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
 }
 .listCard li img{
     width: 90%;
 }
 .listCard li button{
-    background-color: #fff5;
-    border: none;
+
+  padding: 10px;
+ 
+}
+
+.right-margin{
+  margin-right: 15px;
 }
 .listCard .count{
     margin: 0 10px;
 }
+
