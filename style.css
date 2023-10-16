@@ -12,10 +12,16 @@ align-items: center;
 
 .container{
     max-width: 1480px;
-    margin: 0px 150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    margin: 0 auto;
+    
+
+}
+
+
+.header-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 
@@ -75,3 +81,119 @@ button{
     font-weight: 700;
     background: antiquewhite;
 }
+
+
+
+
+/* //form-css */
+body {
+    margin: 0;
+    padding: 0;
+  }
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 75px;
+    padding: 0;
+  }
+  h1, h2 {
+    font-weight: normal;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  a {
+    color: #42b983;
+  }
+  button {
+    cursor: pointer;
+  }
+
+  .cart-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page-header {
+    padding: 5rem 0;
+    width: 100%;
+    background: #3f37c9;
+  }
+  .wrapper {
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .inner-input{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    border-radius: 3px;
+    margin-left: 54px;
+    border: 1px solid #FAFAFA;
+  }
+  .new-todo-form {
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid #FAFAFA;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, .15);
+    margin-top: -3rem;
+    background: white;
+  }
+  .new-todo-label {
+    display: flex;
+    flex-direction: column;
+    width: 44%;
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  .image-input{
+    padding: 0 50px;
+    border-radius: 3px;
+    border: 1px solid lightgrey;
+    font-size: 1rem;
+    margin-top: .5rem;
+    font-weight: normal;
+  }
+.image-url{
+    padding: .5rem;
+    width: 430px;
+    height: 20px;
+    border-radius: 3px;
+    border: 1px solid lightgrey;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    font-weight: normal;
+}
+
+  .new-todo-input {
+    padding: .5rem;
+    border-radius: 3px;
+    border: 1px solid lightgrey;
+    font-size: 1rem;
+    margin-top: .5rem;
+    font-weight: normal;
+  }
+  .new-todo-button {
+    font-size: 1rem;
+    padding: .5rem .7rem;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    background: #3f37c9;
+    flex: 1;
+    margin-left: 10px;
+    border: 1px solid #3f37c9;
+  }
+
+  .admin-btn{
+    margin: 19px;
+    padding: 12px 70px
+  }

@@ -7,15 +7,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header class="header">
         <div class="container">
             <h1>Your Shopping Cart</h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="">Shop</a></li>
+                <li><a href="index.html">Shop</a></li>
             </ul>
-           
+            <div class="shopping">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="quantity">0</span>
+            </div>
         </div>
     </header>
+    <div id="app">
+
+  
+        <section class="wrapper">
+            <div class="new-todo-form">
+                <input  type="text" class="image-url" id="image-input"  style="margin-right: 10px;" placeholder="Image Url"/>
+                <div class="inner-input">
+                    <label class="new-todo-label">
+                        <input  type="text" class="new-todo-input" id="product-name-input"  style="margin-right: 10px;" placeholder="Product Name"/>
+                      </label>
+                      <label class="new-todo-label">
+                        <input  type="text" class="new-todo-input" id="product-price-input" placeholder="Product Price"/>
+                      </label>
+                </div>
+                <button class="admin-btn" id="add-itme">Add itme</button>
+            </div>
+          </section>
+      </div>
+      <script src="app.js"></script>
 </body>
 </html>
