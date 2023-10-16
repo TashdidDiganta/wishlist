@@ -31,13 +31,23 @@ function showCart(cart){
 
 }
 
+const dom = document.getElementsById('listCard')
 
 
 function getOrderItem(id){
     const saveData = getDataFromLocalStorage('item');
     for(i of saveData) {
       if(id === i.id){
-        console.log(i.newProductName)
+        let newDiv = document.createElement('li');
+        newDiv.innerHTML = `
+            <div><img src="${i.imageUrl}"/></div>
+            <div>${i.newProductName}</div>
+          `;
+
+          dom.appendChild(newDiv)
+        //     listCard.appendChild(newDiv);
+        // console.log(i.newProductName)
+
         // document.getElementsById('listCard').innerHTML += `<div class="title">${i.newProductName}</div> `
 
       } 
