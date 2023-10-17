@@ -279,7 +279,7 @@ body {
     width: 90%;
 }
 .listCard li button{
-
+  border-radius: 4px;
   padding: 10px;
  
 }
@@ -287,6 +287,13 @@ body {
 .right-margin{
   margin-right: 15px;
 }
+
+.right-margin input{
+     padding: 0;
+     width: 35px;
+     border-radius: 4px;
+}
+
 .listCard .count{
     margin: 0 10px;
 }

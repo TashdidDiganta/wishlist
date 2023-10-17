@@ -32,38 +32,62 @@ function showCart(cart){
 
 }
 
-
+const val = document.querySelector('#quantity')
+console.log(val)
 
 
 /// add to cart
 function getOrderItem(id){
     const saveData = getDataFromLocalStorage('item');
-    let quantity = 1 ;
-   
     saveData.map(i =>{
-
         if(id === i.id){
-            let price = parseFloat(i.newProductPrice )
+
+            let quantity = 1;
+            let stringToNumber = parseInt(quantity)
+            let price = parseInt(i.newProductPrice )
+
+            let newPrice = price * stringToNumber;
 
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
             <div><img src="${i.imageUrl}"/></div>
             <div>${i.newProductName}</div>
-            <div>${ price }</div>
+            <div>${newPrice}</div>
             <div class="right-margin">
-              <button onclick=" console.log('adf') ">-</button>
-              <div>${quantity}</div>
-              <button onclick=" ${quanssstity} ">+</button>
+              <button onclick="updateQuantitys(event)">-</button>
+              <input type="number" steps="1" id="quantity" value="${quantity}"/>
+              <button onclick="updateQuantity(event)">+</button>
             </div>
           `;
+         
           dom.appendChild(newDiv)
         }
-    })    
+    })  
 }
 
 
-function updateQuantity(){
+function get(){
+    const val = document.querySelector('#quantity')
+    console.log(val)
+}
 
+get()
+
+
+function updateQuantity(e){
+    // e.preventDefualt()
+    let quantityPlus = e.target.previousElementSibling.value;
+    e.target.previousElementSibling.value = parseInt(quantityPlus) +1;
+
+    const val = document.querySelector('#quantity')
+
+}
+
+function updateQuantitys(e){
+    // e.preventDefualt()
+    let quantityminus = e.target.nextElementSibling.value
+    e.target.nextElementSibling.value = parseInt(quantityminus) - 1;
+    
 }
 
 
