@@ -40,13 +40,14 @@ function getOrderItem(id){
 
     saveData.map(i =>{
         if(id === i.id){
-            let price = i.newProductPrice
-            updateQuantity( event,price);
+
+            console.log()
+            total.innerText = i.newProductPrice
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
             <div><img src="${i.imageUrl}"/></div>
             <div>${i.newProductName}</div>
-            <div>${i.newProductPrice}</div>
+            <div class="price" data-value="${i.newProductPrice}">${i.newProductPrice}</div>
             <div class="right-margin">
               <button onclick="updateQuantitys(event)">-</button>
               <input type="number" step="1" value="1"/>
@@ -61,17 +62,22 @@ function getOrderItem(id){
 
 
 
-function updateQuantity(e, price){
+
+
+function updateQuantity(e){
     // e.preventDefualt()
-    let quantityPlus = e.target.previousElementSibling.value;
+    let quantityPlus = parseInt(e.target.previousElementSibling.value);
+    let updateQuantity = parseInt(quantityPlus) +1;
+    e.target.previousElementSibling.value = updateQuantity;
+    let acculData = e.target.parentElement.previousElementSibling.classList.contains('price') ? parseFloat(e.target.parentElement.previousElementSibling.getAttribute('data-value')) : 0;
+    e.target.parentElement.previousElementSibling.innerText = parseFloat( updateQuantity * acculData)
 
-     e.target.previousElementSibling.value = parseInt(quantityPlus) +1;
-    let numberPrice = parseInt(price)
-
-    console.log(quantityPlus)
-    console.log(numberPrice )
-
+     let numberPrice = e.target.parentElement.previousElementSibling.classList.contains('price') ? parseFloat(e.target.parentElement.previousElementSibling.innerText) : 0;
+     total.innerText = numberPrice;
 }
+
+
+
 
 function updateQuantitys(e){
     // e.preventDefualt()
