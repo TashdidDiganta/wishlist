@@ -32,61 +32,51 @@ function showCart(cart){
 
 }
 
-const val = document.querySelector('#quantity')
-console.log(val)
 
 
 /// add to cart
 function getOrderItem(id){
     const saveData = getDataFromLocalStorage('item');
+
     saveData.map(i =>{
         if(id === i.id){
-
-            let quantity = 1;
-            let stringToNumber = parseInt(quantity)
-            let price = parseInt(i.newProductPrice )
-
-            let newPrice = price * stringToNumber;
-
+            let price = i.newProductPrice
+            updateQuantity( event,price);
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
             <div><img src="${i.imageUrl}"/></div>
             <div>${i.newProductName}</div>
-            <div>${newPrice}</div>
+            <div>${i.newProductPrice}</div>
             <div class="right-margin">
               <button onclick="updateQuantitys(event)">-</button>
-              <input type="number" steps="1" id="quantity" value="${quantity}"/>
+              <input type="number" step="1" value="1"/>
               <button onclick="updateQuantity(event)">+</button>
-            </div>
-          `;
-         
+            </div>`;
           dom.appendChild(newDiv)
         }
     })  
 }
 
 
-function get(){
-    const val = document.querySelector('#quantity')
-    console.log(val)
-}
-
-get()
 
 
-function updateQuantity(e){
+
+function updateQuantity(e, price){
     // e.preventDefualt()
     let quantityPlus = e.target.previousElementSibling.value;
-    e.target.previousElementSibling.value = parseInt(quantityPlus) +1;
 
-    const val = document.querySelector('#quantity')
+     e.target.previousElementSibling.value = parseInt(quantityPlus) +1;
+    let numberPrice = parseInt(price)
+
+    console.log(quantityPlus)
+    console.log(numberPrice )
 
 }
 
 function updateQuantitys(e){
     // e.preventDefualt()
     let quantityminus = e.target.nextElementSibling.value
-    e.target.nextElementSibling.value = parseInt(quantityminus) - 1;
+    e.target.nextElementSibling.value = parseInt(quantityminus) -1;
     
 }
 
