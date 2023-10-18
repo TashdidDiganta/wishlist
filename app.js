@@ -26,12 +26,6 @@ closeCart.addEventListener('click', ()=>{
 });
 
 
-// openShopping.addEventListener('click', ()=>{
-//     body.classList.add('active');
-// })
-// closeShopping.addEventListener('click', ()=>{
-//     body.classList.remove('active');
-// })
 
 
 function showCart(cart){
@@ -52,6 +46,15 @@ function showCart(cart){
 
 }
 
+setCartDataInLocalStorage();
+
+
+function setCartDataInLocalStorage(cartItem){
+    const setCartData = JSON.stringify(cartItem);
+    localStorage.setItem('cartData', setCartData);
+}
+
+
 
 
 /// add to cart
@@ -71,13 +74,15 @@ function getOrderItem(id){
               <input type="number" step="1" value="1"/>
               <button onclick="updateQuantity(event)">+</button>
             </div>`;
+            
           dom.appendChild(newDiv)
+  
         }
     })  
 }
 
 
-console.log(dom.innerHTML.li.length)
+
 
 
 
