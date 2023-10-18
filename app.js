@@ -1,6 +1,8 @@
 const dom = document.getElementById('product-container');
-const total = document.querySelector('.total')
-
+const total = document.querySelector('.total');
+const cart = document.getElementById('shopping-cart');
+const closeCart = document.getElementById('close');
+const body = document.querySelector('body')
 // create arr
 const saveCartIntoLocalStorage = getDataFromLocalStorage('item') != null? getDataFromLocalStorage('item') : [];
 showCart(saveCartIntoLocalStorage)
@@ -12,6 +14,24 @@ function getDataFromLocalStorage(item){
     const data = localStorage.getItem(item)
     return JSON.parse(data)
 }
+
+
+cart.addEventListener('click', ()=>{
+    body.classList.add('active');
+})
+
+
+closeCart.addEventListener('click', ()=>{
+    body.classList.remove('active');
+});
+
+
+// openShopping.addEventListener('click', ()=>{
+//     body.classList.add('active');
+// })
+// closeShopping.addEventListener('click', ()=>{
+//     body.classList.remove('active');
+// })
 
 
 function showCart(cart){
@@ -40,8 +60,6 @@ function getOrderItem(id){
 
     saveData.map(i =>{
         if(id === i.id){
-
-            console.log()
             total.innerText = i.newProductPrice
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
@@ -59,7 +77,7 @@ function getOrderItem(id){
 }
 
 
-
+console.log(dom.innerHTML.li.length)
 
 
 
