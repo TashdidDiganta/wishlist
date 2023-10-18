@@ -55,6 +55,13 @@ function setCartDataInLocalStorage(cartItem){
 }
 
 
+function getCartDataInLocalStorage(cartItem){
+    const data = localStorage.getItem(cartItem)
+    return value = JSON.parse(data)
+   
+}
+
+
 
 
 
@@ -65,8 +72,24 @@ function getOrderItem(id){
     const saveData = getDataFromLocalStorage('item');
     saveData.map(i =>{
         if(id === i.id){
-   
-        return obj = { id: i.id, name:i.newProductName, price:i.newProductPrice}
+          let  value = [];
+          console.log(value)
+        let obj = { id: i.id, name:i.newProductName, price:i.newProductPrice}
+        const val = getCartDataInLocalStorage('cartItem')
+
+        value.push(...value, obj)
+        // const newa = [...val, obj]
+        // setCartDataInLocalStorage(newa)
+
+
+        // if(val === null || val ===''){
+        //     return [obj]
+        // } else{
+
+        //     const newa = [...val, obj]
+        //     setCartDataInLocalStorage(newa)
+        // }
+        //  setCartDataInLocalStorage(obj)
         } 
     })  
 
