@@ -46,7 +46,7 @@ function showCart(cart){
 
 }
 
-setCartDataInLocalStorage();
+
 
 
 function setCartDataInLocalStorage(cartItem){
@@ -57,29 +57,41 @@ function setCartDataInLocalStorage(cartItem){
 
 
 
+
+
+
 /// add to cart
 function getOrderItem(id){
     const saveData = getDataFromLocalStorage('item');
-
     saveData.map(i =>{
         if(id === i.id){
-            total.innerText = i.newProductPrice
-            let newDiv = document.createElement('li');
-            newDiv.innerHTML = `
-            <div><img src="${i.imageUrl}"/></div>
-            <div>${i.newProductName}</div>
-            <div class="price" data-value="${i.newProductPrice}">${i.newProductPrice}</div>
-            <div class="right-margin">
-              <button onclick="updateQuantitys(event)">-</button>
-              <input type="number" step="1" value="1"/>
-              <button onclick="updateQuantity(event)">+</button>
-            </div>`;
-            
-          dom.appendChild(newDiv)
-  
-        }
+   
+        return obj = { id: i.id, name:i.newProductName, price:i.newProductPrice}
+        } 
     })  
+
+   
 }
+
+
+
+
+
+
+
+// total.innerText = i.newProductPrice
+// let newDiv = document.createElement('li');
+// newDiv.innerHTML = `
+// <div><img src="${i.imageUrl}"/></div>
+// <div>${i.newProductName}</div>
+// <div class="price" data-value="${i.newProductPrice}">${i.newProductPrice}</div>
+// <div class="right-margin">
+//   <button onclick="updateQuantitys(event)">-</button>
+//   <input type="number" step="1" value="1"/>
+//   <button onclick="updateQuantity(event)">+</button>
+// </div>`;
+
+// dom.appendChild(newDiv)
 
 
 
