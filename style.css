@@ -68,9 +68,6 @@ a{
 }
 
 
-
-
-
 /* cards-css */
 
 
@@ -86,6 +83,7 @@ a{
 
 .add-card img{
     width: 220px;
+    height: 200px;
     margin-top: 30px;
 }
 

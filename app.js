@@ -4,9 +4,10 @@ const cart = document.getElementById('shopping-cart');
 const closeCart = document.getElementById('close');
 const body = document.querySelector('body')
 const quantityLength = document.querySelector('.quantity')
+
+
 // create arr
 const saveCartIntoLocalStorage = getDataFromLocalStorage('item') != null? getDataFromLocalStorage('item') : [];
-
 showCart(saveCartIntoLocalStorage)
 
 
@@ -29,7 +30,7 @@ closeCart.addEventListener('click', ()=>{
 
 
 
-
+/// ALL PRODUCT LIST
 function showCart(cart){
     cart.map(item =>{
         document.getElementById('cart-container').innerHTML += `
@@ -49,32 +50,24 @@ function showCart(cart){
 }
 
 
-function setCartDataInLocalStorage(cartItem){
-    const setCartData = JSON.stringify(cartItem);
-    localStorage.setItem('cartData', setCartData);
-}
+
+//// ADD TO CART SECTION
 
 
-function getCartDataInLocalStorage(cartData){
-    const data = localStorage.getItem(cartData)
-    return JSON.parse(data)
-   
-}
 
 
 
 /// show cart data
 const getCart = getCartDataInLocalStorage('cartData')!= null? getCartDataInLocalStorage('cartData') : [];
 quantityLength.innerText = getCart.length;
-
-
 showCartAddToCart(getCart)
 
 
 
+
+
+// ALL CART LIST
 function showCartAddToCart(cart){
-
-
     cart.map(data =>{
          let newDiv = document.createElement('li');
         newDiv.innerHTML = `
@@ -89,38 +82,36 @@ function showCartAddToCart(cart){
 
         dom.appendChild(newDiv);
     })
-
-
-
 }
-
-const arrayOfObjects = [
-    { number: 5 },
-    { number: 10 },
-    { number: 15 },
-  ];
-  
-  // Use the reduce method to sum the 'number' property of each object
-  const sum = arrayOfObjects.reduce((accumulator, currentValue) => {
-    return accumulator + currentValue.number;
-  }, 0);
-  
-  console.log("Sum of numbers:", sum);
 
 
 let  value = [];
-
 /// add to cart
 function getOrderItem(id){
     setCartDataInLocalStorage(value)
-    const saveData = getDataFromLocalStorage('item');
-    saveData.map(i =>{
+    // ALL PRODUCTS
+    const allProduct = getDataFromLocalStorage('item');
+    allProduct.map(i =>{
         if(id === i.id){
         value.push(i)
-
-
         } 
-    })     
+    })  
+    
+
+    showCartAddToCart(cart)
+
+  
+}
+
+
+function setCartDataInLocalStorage(cartItem){
+    const setCartData = JSON.stringify(cartItem);
+    localStorage.setItem('cartData', setCartData);
+}
+
+function getCartDataInLocalStorage(cartData){
+    const data = localStorage.getItem(cartData)
+    return JSON.parse(data)
 }
 
 
@@ -132,7 +123,7 @@ function incressQuantity(e){
     e.target.parentElement.previousElementSibling.innerText = parseFloat( updateQuantity * acculData)
 
      
-    setCartDataInLocalStorage( )
+
     //  let numberPrice = e.target.parentElement.previousElementSibling.classList.contains('price') ? parseFloat(e.target.parentElement.previousElementSibling.innerText) : 0;
     //  total.innerText = numberPrice;
 }
