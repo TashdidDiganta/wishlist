@@ -24,7 +24,7 @@ addItme.addEventListener('click', function(){
 
 //  create itme
 function createItem(url,name,price){
-    const item = {id: Math.random(), imageUrl:url, newProductName: name,  newProductPrice: price};
+    const item = {id: Math.random(), imageUrl:url, newProductName: name,  newProductPrice: price, productQuantity: price};
     const getData = getDataFromLocalStorage('item')
     if(getData === null || getData === ''){
         return [item]

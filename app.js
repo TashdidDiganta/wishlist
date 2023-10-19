@@ -3,8 +3,10 @@ const total = document.querySelector('.total');
 const cart = document.getElementById('shopping-cart');
 const closeCart = document.getElementById('close');
 const body = document.querySelector('body')
+const quantityLength = document.querySelector('.quantity')
 // create arr
 const saveCartIntoLocalStorage = getDataFromLocalStorage('item') != null? getDataFromLocalStorage('item') : [];
+
 showCart(saveCartIntoLocalStorage)
 
 
@@ -47,98 +49,95 @@ function showCart(cart){
 }
 
 
-
-
 function setCartDataInLocalStorage(cartItem){
     const setCartData = JSON.stringify(cartItem);
     localStorage.setItem('cartData', setCartData);
 }
 
 
-function getCartDataInLocalStorage(cartItem){
-    const data = localStorage.getItem(cartItem)
-    return value = JSON.parse(data)
+function getCartDataInLocalStorage(cartData){
+    const data = localStorage.getItem(cartData)
+    return JSON.parse(data)
    
 }
 
 
 
+/// show cart data
+const getCart = getCartDataInLocalStorage('cartData')!= null? getCartDataInLocalStorage('cartData') : [];
+quantityLength.innerText = getCart.length;
+
+
+showCartAddToCart(getCart)
 
 
 
+function showCartAddToCart(cart){
+
+
+    cart.map(data =>{
+         let newDiv = document.createElement('li');
+        newDiv.innerHTML = `
+        <div><img src="${data.imageUrl}"/></div>
+        <div>${data.newProductName}</div>
+        <div class="price" data-value="${data.productQuantity}">${data.newProductPrice}</div>
+        <div class="right-margin">
+        <button onclick="udecressQuantitys(event)">-</button>
+        <input type="number" step="1" value="1"/>
+        <button onclick="incressQuantity(event)">+</button>
+        </div>`;
+
+        dom.appendChild(newDiv);
+    })
+
+
+
+}
+
+const arrayOfObjects = [
+    { number: 5 },
+    { number: 10 },
+    { number: 15 },
+  ];
+  
+  // Use the reduce method to sum the 'number' property of each object
+  const sum = arrayOfObjects.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue.number;
+  }, 0);
+  
+  console.log("Sum of numbers:", sum);
+
+
+let  value = [];
 
 /// add to cart
 function getOrderItem(id){
+    setCartDataInLocalStorage(value)
     const saveData = getDataFromLocalStorage('item');
     saveData.map(i =>{
         if(id === i.id){
-          let  value = [];
-          console.log(value)
-        let obj = { id: i.id, name:i.newProductName, price:i.newProductPrice}
-        const val = getCartDataInLocalStorage('cartItem')
-
-        value.push(...value, obj)
-        // const newa = [...val, obj]
-        // setCartDataInLocalStorage(newa)
+        value.push(i)
 
 
-        // if(val === null || val ===''){
-        //     return [obj]
-        // } else{
-
-        //     const newa = [...val, obj]
-        //     setCartDataInLocalStorage(newa)
-        // }
-        //  setCartDataInLocalStorage(obj)
         } 
-    })  
-
-   
+    })     
 }
 
 
-
-
-
-
-
-// total.innerText = i.newProductPrice
-// let newDiv = document.createElement('li');
-// newDiv.innerHTML = `
-// <div><img src="${i.imageUrl}"/></div>
-// <div>${i.newProductName}</div>
-// <div class="price" data-value="${i.newProductPrice}">${i.newProductPrice}</div>
-// <div class="right-margin">
-//   <button onclick="updateQuantitys(event)">-</button>
-//   <input type="number" step="1" value="1"/>
-//   <button onclick="updateQuantity(event)">+</button>
-// </div>`;
-
-// dom.appendChild(newDiv)
-
-
-
-
-
-
-
-function updateQuantity(e){
-    // e.preventDefualt()
+function incressQuantity(e){
     let quantityPlus = parseInt(e.target.previousElementSibling.value);
     let updateQuantity = parseInt(quantityPlus) +1;
     e.target.previousElementSibling.value = updateQuantity;
     let acculData = e.target.parentElement.previousElementSibling.classList.contains('price') ? parseFloat(e.target.parentElement.previousElementSibling.getAttribute('data-value')) : 0;
     e.target.parentElement.previousElementSibling.innerText = parseFloat( updateQuantity * acculData)
 
-     let numberPrice = e.target.parentElement.previousElementSibling.classList.contains('price') ? parseFloat(e.target.parentElement.previousElementSibling.innerText) : 0;
-     total.innerText = numberPrice;
+     
+    setCartDataInLocalStorage( )
+    //  let numberPrice = e.target.parentElement.previousElementSibling.classList.contains('price') ? parseFloat(e.target.parentElement.previousElementSibling.innerText) : 0;
+    //  total.innerText = numberPrice;
 }
 
-
-
-
-function updateQuantitys(e){
-    // e.preventDefualt()
+function decressQuantitys(e){
     let quantityminus = e.target.nextElementSibling.value
     e.target.nextElementSibling.value = parseInt(quantityminus) -1;
     
