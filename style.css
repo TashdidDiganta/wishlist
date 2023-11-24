@@ -53,14 +53,14 @@ a{
 }
 
 
-#cart-container{
+/* #cart-container{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
   row-gap: 20px;
   margin-top: 50px;
   transition: 0.5s;
-}
+} */
 
 
 .cards{
@@ -224,7 +224,9 @@ body {
 
 /* 
   add to cart */
-
+.shopping{
+  cursor: pointer;
+}
 
 
   .card{
@@ -272,31 +274,37 @@ body {
 .listCard{
   display: block;
 }
-.listCard li{
-    display: grid;
-    margin-top: 15px;
-    grid-template-columns: repeat(4, 1fr);
-    color: #fff;
-    row-gap: 10px;
 
 
+.delete  {
+  background-color: tan;
 }
-.listCard li div{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+
+
+.order-item{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.order-item img{
+  width: 86px;
+}
+
 .listCard li img{
     width: 90%;
 }
-.listCard li button{
+.order-item button{
   border-radius: 4px;
   padding: 10px;
  
 }
 
-.right-margin{
-  margin-right: 15px;
+.price{
+  color: #fff;
+}
+.name{
+  color: #fff;
 }
 
 .right-margin input{
